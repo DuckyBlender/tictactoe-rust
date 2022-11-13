@@ -25,7 +25,7 @@ fn main() {
 
     draw(array.clone());
     // Game loop
-    while !win {
+    loop {
         // Number input
         let mut input = String::new();
         match io::stdin().read_line(&mut input) {
@@ -48,12 +48,14 @@ fn main() {
         // Check if square is in range (not checking below zero because it's unsigned)
         if input > 8 {
             println!("Please enter a number between 1 and 9.");
+            // Repeat the loop
             continue;
         }
 
         // Check if square is free
         if array[input] != " " {
             println!("That square is already taken.");
+            // Repeat the loop
             continue;
         }
 
@@ -119,6 +121,9 @@ fn main() {
             // Wait for enter
             let mut input = String::new();
             io::stdin().read_line(&mut input).unwrap();
+
+            // End the game
+            break;
         }
     }
 }
