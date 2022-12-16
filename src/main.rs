@@ -1,7 +1,8 @@
 use std::io;
 
 // Function for drawing the game board
-fn draw(array: Vec<&str>) {
+// &[&str] = &Vec<&str>
+fn draw(array: &[&str]) {
     //for i in 0..array.len() {
     //    println!("{}", array[i]);
     //}
@@ -23,7 +24,7 @@ fn main() {
     println!("Player 1 is X and Player 2 is O");
     println!("Enter the number of the square you want to place your piece in (1-9)");
 
-    draw(array.clone());
+    draw(&array);
     // Game loop
     loop {
         // Number input
@@ -96,7 +97,7 @@ fn main() {
         }
 
         // Draw board
-        draw(array.clone());
+        draw(&array);
 
         // Current player
         if turn % 2 == 0 {
